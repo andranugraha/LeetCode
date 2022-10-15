@@ -1,11 +1,12 @@
 class Solution:
     def isValid(self, s: str) -> bool:
-        removed = True
-        while removed:
-            st = s.replace("abc", "")
-            removed = st != s
-            s = st
-        
-        return s == ""
+        state = s
+        while len(s) != 0:
+            s = s.replace('abc', '')
+            if state != s:
+                state = s
+            else:
+                break
+        return len(s) == 0
         
         
